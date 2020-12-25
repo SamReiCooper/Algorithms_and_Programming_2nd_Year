@@ -43,20 +43,17 @@ int main(int argc, char *argv[])
         }
         
         for(i=0; i<strlen(tmp[k]); i++)
-            if( ((k==5) && tmp[0][i] == 'v' && tmp[1][i] == 'v' && tmp[2][i] == 'v' && tmp[3][i] == 'v' && tmp[4][i] == 'v') || 
-                ((k==5) && tmp[1][i] == 'v' && tmp[2][i] == 'v' && tmp[3][i] == 'v' && tmp[4][i] == 'v' && tmp[5][i] == 'v') ||
-                ((k>=6) && tmp[2][i] == 'v' && tmp[3][i] == 'v' && tmp[4][i] == 'v' && tmp[5][i] == 'v' && tmp[0][i] == 'v') ||
-                ((k>=6) && tmp[3][i] == 'v' && tmp[4][i] == 'v' && tmp[5][i] == 'v' && tmp[0][i] == 'v' && tmp[1][i] == 'v') ||
-                ((k>=6) && tmp[4][i] == 'v' && tmp[5][i] == 'v' && tmp[0][i] == 'v' && tmp[1][i] == 'v' && tmp[2][i] == 'v') ||
-                ((k>=6) && tmp[5][i] == 'v' && tmp[0][i] == 'v' && tmp[1][i] == 'v' && tmp[2][i] == 'v' && tmp[3][i] == 'v'))
-                    {
-                        printf("k=%d\n", k);
+            if( ((k==5) && tmp[0][i] == 'v' && tmp[1][i] == 'v' && tmp[2][i] == 'v' && tmp[3][i] == 'v' && tmp[4][i] == 'v' && tmp[5][i] != 'v') || 
+                ((k==5) && tmp[1][i] == 'v' && tmp[2][i] == 'v' && tmp[3][i] == 'v' && tmp[4][i] == 'v' && tmp[5][i] == 'v' && tmp[0][i] != 'v') ||
+                ((k>=6) && tmp[2][i] == 'v' && tmp[3][i] == 'v' && tmp[4][i] == 'v' && tmp[5][i] == 'v' && tmp[0][i] == 'v' && tmp[1][i] != 'v') ||
+                ((k>=6) && tmp[3][i] == 'v' && tmp[4][i] == 'v' && tmp[5][i] == 'v' && tmp[0][i] == 'v' && tmp[1][i] == 'v' && tmp[2][i] != 'v') ||
+                ((k>=6) && tmp[4][i] == 'v' && tmp[5][i] == 'v' && tmp[0][i] == 'v' && tmp[1][i] == 'v' && tmp[2][i] == 'v' && tmp[3][i] != 'v') ||
+                ((k>=6) && tmp[5][i] == 'v' && tmp[0][i] == 'v' && tmp[1][i] == 'v' && tmp[2][i] == 'v' && tmp[3][i] == 'v' && tmp[4][i] != 'v'))
                     vc++;
-                    }
         k++;
     }
-    printf("hc: %d\n", hc);
-    printf("vc: %d\n", vc);
+    printf("horizontal hhhhh number: %d\n", hc);
+    printf("vertical vvvvv number: %d\n", vc);
     fclose(f);
     return 0;
 }
