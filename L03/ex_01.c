@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     FILE *f1, *f2;
     int i,j;
-    char str[101];
+    char str[101], tmp[21];
     struct word find[100];
     if(argc != 3)
         return 1;
@@ -23,7 +23,10 @@ int main(int argc, char *argv[])
         return 2;
     f1 = fopen(argv[1], "r");
     f2 = fopen(argv[2], "r");
-    for(i=0; fgets(find[i].w, 20, f2); i++);
+    for(i=0; fgets(find[i].w, 20, f2); i++)
+        if(isalpha(find[j].w[strlen(find[j].w) -1]) == 0)
+            find[j].w[strlen(find[j].w)-1] = '\0';
+ 
     for(j=0; j<i; j++)
         find[j].n = 0;
     while(fgets(str, 100, f1))
@@ -34,6 +37,8 @@ int main(int argc, char *argv[])
         printf("%s - ", find[j].w);
         printf("%d occurence(s)\n", find[j].n);
     }
+    fclose(f1);
+    fclose(f2);
     return 0;
 }
 
@@ -46,9 +51,6 @@ void findWordCount(char *str, char *key, int *count)
             j++;
         else
             j=0;
-        
-        if((isalpha(str[i+1]) == 0 || strlen(str) == i+1) && j == strlen(key)-1)
-            (*count)++;
         
         if((isalpha(str[i+1]) == 0 || strlen(str) == i+1) && j == strlen(key))
             (*count)++;

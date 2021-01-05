@@ -73,5 +73,6 @@ int main(int argc, char *argv[])
     }
     for(i=0;i<j;i++)
         printf("%s a:%.2f p:%.2f\n", r[i].name, Area(r[i].x1, r[i].y1, r[i].x2, r[i].y2), Per(r[i].x1, r[i].y1, r[i].x2, r[i].y2));
+    fclose(f);
     return 0;
 }
